@@ -4,6 +4,7 @@
 
 body {
   font-family: monospace;
+  padding: 1rem;
 }
 
 .container {
@@ -14,33 +15,46 @@ body {
   width: 100%;
   margin: auto;
 
-  @media (min-width: 1024px) {
-    flex-direction: row;
-  }
+@media (min-width: 1024px) {
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
 
-  form {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
     fieldset {
+      border: 1px solid black;
+      width: 600px;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
       gap: .5rem;
 
       legend {
-        font-weight: 400;
+        font-size: 1.15rem;
+        font-weight: bold;
+        padding: 0 5px;
       }
 
       label {
         display: flex;
         align-items: center;
         gap: 1rem;
+        font-size: 1.15rem;
+        
+        span {
+          flex-basis: 100px;
+          font-size: 0.9em;
+        }
 
         input {
           flex: 1;
           padding: .25rem;
+          border: 1px solid gray;
         }
       }
 
@@ -48,12 +62,78 @@ body {
         display: flex;
         flex-direction: row;
         gap: .5rem;
+        padding-top: 0.5rem;
 
         button {
           flex: 1;
           padding: .25rem;
         }
       }
+    }
+  }
+}
+
+#employees {
+    flex-grow: 1;
+    overflow-x: auto;
+    
+    table {
+        width: 100%;
+        border: 1px solid gray;
+    }
+
+    thead th {
+        background-color: lightgray;
+        padding: 0.5rem 0.75rem;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: bold;
+        border-right: 1px solid gray;
+        
+        &:last-child {
+            border-right: none;
+        }
+    }
+
+    tbody {
+      font-size: 0.85rem;
+        background-color: white;
+        
+        tr {
+            border-bottom: 1px solid #eee;
+        }
+
+        td {
+            padding: 0.5rem 0.75rem;
+            vertical-align: middle;
+            border-right: 1px solid #eee;
+
+            &:last-child {
+                border-right: none;
+            }
+
+            img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                display: block; 
+            }
+
+            .delete-btn {
+                background-color: rgb(227, 227, 227);
+                color: black;
+                border: none;
+                padding: 4px 8px;
+                border-radius: 3px;
+                border-color: black;
+                cursor: pointer;
+                font-size: 0.75rem;
+                font-family: monospace;
+            }
+            .delete-btn:hover{
+              background-color: rgba(255, 0, 0, 0.611);
+        }
     }
   }
 }
